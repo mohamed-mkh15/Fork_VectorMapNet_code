@@ -246,7 +246,8 @@ def main():
         if args.out:
             print(f'\nwriting results to {args.out}')
             mmcv.dump(outputs, args.out)
-        kwargs = {} if args.eval_options is None else args.eval_options
+        # kwargs = {} if args.eval_options is None else args.eval_options
+        kwargs = {'name': 'nusc_step', 'prefix': cfg.work_dir} 
         if args.format_only:
             dataset.format_results(outputs, **kwargs)
         if args.eval:
